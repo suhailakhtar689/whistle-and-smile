@@ -1,0 +1,216 @@
+/* WhistleDifference.css – Modern & Professional Design */
+
+.diff-section {
+  padding: 100px 24px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.diff-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(128, 90, 240, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.diff-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left side */
+.diff-left {
+  width: 100%;
+}
+
+.diff-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 48px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.diff-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #805AF0, #B86BFF);
+  border-radius: 4px;
+}
+
+.diff-points {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.diff-point {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.diff-point:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(8px);
+  border-color: rgba(128, 90, 240, 0.3);
+}
+
+.diff-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #805AF0, #B86BFF);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(128, 90, 240, 0.3);
+}
+
+.diff-point-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.diff-point-desc {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Right side – image with elegant frame */
+.diff-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diff-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 480 / 400;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(128, 90, 240, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.diff-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 35px 45px -20px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(128, 90, 240, 0.5);
+}
+
+/* Decorative gradient border on image container */
+.diff-right::before {
+  content: '';
+  position: absolute;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: linear-gradient(135deg, #805AF0, #B86BFF, #FF6B9D);
+  border-radius: 38px;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.diff-right {
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .diff-section {
+    padding: 70px 24px;
+  }
+  .diff-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .diff-right {
+    order: 1;
+    margin-top: 20px;
+  }
+  .diff-left {
+    order: 0;
+    text-align: center;
+  }
+  .diff-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .diff-point {
+    text-align: left;
+  }
+  .diff-img {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .diff-section {
+    padding: 50px 16px;
+  }
+  .diff-title {
+    margin-bottom: 36px;
+    font-size: 1.8rem;
+  }
+  .diff-points {
+    gap: 20px;
+  }
+  .diff-point {
+    padding: 16px;
+    gap: 14px;
+  }
+  .diff-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+  .diff-point-title {
+    font-size: 1rem;
+  }
+  .diff-point-desc {
+    font-size: 0.85rem;
+  }
+  .diff-img {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+  .diff-right::before {
+    display: none;
+  }
+}

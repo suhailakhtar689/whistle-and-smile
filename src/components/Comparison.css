@@ -1,0 +1,148 @@
+/* Base styles (same as before, but with overflow control) */
+.comp-section {
+  padding: 80px 24px;
+  background: var(--off-white);
+}
+.comp-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.comp-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--white);
+  background: #111;
+  padding: 60px 24px 40px;
+  border-radius: 20px 20px 0 0;
+}
+.comp-table-wrap {
+  background: var(--white);
+  border-radius: 0 0 20px 20px;
+  overflow-x: auto;  /* Enables horizontal scroll on small screens */
+  overflow-y: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensures table doesn't get too cramped, forces scroll if needed */
+}
+.comp-table th {
+  padding: 18px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+}
+.col-feature {
+  text-align: left !important;
+}
+.whistle-badge {
+  display: inline-block;
+  background: var(--purple);
+  color: var(--white);
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.comp-table td {
+  padding: 16px 24px;
+  font-size: 0.87rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.feature-cell {
+  text-align: left;
+  font-weight: 500;
+  color: var(--black);
+}
+.tick {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.tick.green {
+  color: var(--green);
+}
+.tick.red {
+  color: var(--red);
+}
+.tag-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--purple);
+}
+.tag-text.grey {
+  color: var(--grey);
+}
+.comp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.comp-table tbody tr:hover {
+  background: var(--off-white);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .comp-section {
+    padding: 60px 16px;
+  }
+  .comp-title {
+    padding: 40px 20px 30px;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+  .comp-table-wrap {
+    border-radius: 0 0 16px 16px;
+  }
+  .comp-table {
+    min-width: 500px; /* Slightly smaller min-width for better fit, still scrollable */
+  }
+  .comp-table th,
+  .comp-table td {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+  .whistle-badge {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+  }
+  .tick {
+    font-size: 1rem;
+  }
+  .tag-text {
+    font-size: 0.75rem;
+  }
+  .feature-cell {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small devices (below 480px) */
+@media (max-width: 480px) {
+  .comp-section {
+    padding: 40px 12px;
+  }
+  .comp-table {
+    min-width: 420px;
+  }
+  .comp-table th,
+  .comp-table td {
+    padding: 10px 12px;
+    font-size: 0.75rem;
+  }
+  .whistle-badge {
+    padding: 2px 8px;
+    font-size: 0.65rem;
+  }
+  .tick {
+    font-size: 0.9rem;
+  }
+  .tag-text {
+    font-size: 0.7rem;
+  }
+}

@@ -1,0 +1,142 @@
+/* DoctorSection.css – Responsive with proper image border */
+
+.doctor-section {
+  padding: 80px 24px;
+  background: var(--off-white);
+}
+
+.doctor-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left content */
+.doctor-left {
+  width: 100%;
+}
+
+.doctor-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.doctor-desc {
+  font-size: 0.95rem;
+  color: var(--dark-grey);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.doctor-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--purple);
+  color: var(--white);
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(128, 90, 240, 0.2);
+}
+
+.doctor-btn:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(128, 90, 240, 0.3);
+}
+
+/* Right image */
+.doctor-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 3px solid var(--purple);   /* ✅ Purple border - theek rahega */
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+  .doctor-section {
+    padding: 60px 20px;
+  }
+  .doctor-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .doctor-left {
+    text-align: center;
+    order: 0;
+  }
+  .doctor-right {
+    order: 1;
+    margin-top: 20px;
+  }
+  .doctor-img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .doctor-title {
+    text-align: center;
+  }
+  .doctor-desc {
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .doctor-btn {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .doctor-section {
+    padding: 50px 16px;
+  }
+  .doctor-title {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+  .doctor-desc {
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+  .doctor-btn {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+  .doctor-img {
+    max-width: 100%;
+    border-radius: 20px;
+    border-width: 2px;  /* mobile par thoda patla border */
+    aspect-ratio: 4 / 3;
+  }
+}
