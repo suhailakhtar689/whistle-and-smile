@@ -1,11 +1,333 @@
-.smilers-section { padding: 80px 24px; background: #1a0a2e; }
-.smilers-inner { max-width: var(--max-w); margin: 0 auto; }
-.smilers-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--white); text-align: center; margin-bottom: 48px; }
-.smilers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.smiler-card { position: relative; border-radius: 16px; overflow: hidden; }
-.smiler-img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.4s; }
-.smiler-card:hover .smiler-img { transform: scale(1.05); }
-.smiler-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); }
-.smiler-badge { display: inline-block; background: var(--purple); color: var(--white); padding: 4px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; }
-@media (max-width: 900px) { .smilers-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .smilers-grid { grid-template-columns: repeat(2, 1fr); } .smiler-img { height: 200px; } }
+/* ══════════════════════════════
+   SECTION
+══════════════════════════════ */
+.smilers-section {
+  background: #fff;
+  padding: 80px 24px;
+}
+
+.smilers-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.smilers-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ══════════════════════════════
+   GRID
+══════════════════════════════ */
+.smilers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* ══════════════════════════════
+   CARD — purple frame
+══════════════════════════════ */
+.smiler-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #a259d9;
+  border: 6px solid #a259d9;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.smiler-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 24px 56px rgba(162, 89, 217, 0.45);
+}
+
+/* B&W — 4th card */
+.smiler-card--bw .smiler-img,
+.smiler-card--bw {
+  filter: grayscale(100%);
+}
+
+/* ── Photo ── */
+.smiler-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.smiler-card:hover .smiler-img {
+  transform: scale(1.07);
+}
+
+/* ── Top bar — logo top-right ── */
+.smiler-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 10px 10px 28px;
+  display: flex;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, rgba(162,89,217,0.9) 0%, transparent 100%);
+  z-index: 3;
+}
+
+.smiler-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  line-height: 1;
+}
+
+.smiler-logo-w {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  color: #a259d9;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.smiler-logo-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+
+.smiler-logo-sub {
+  font-size: 6px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Quote mark box — bottom-left ── */
+.smiler-quote-wrap {
+  position: absolute;
+  bottom: 52px;
+  left: 10px;
+  z-index: 3;
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smiler-quote {
+  font-size: 2.4rem;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: -8px;
+}
+
+/* ── Bottom overlay bar ── */
+.smiler-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 8px 12px 10px;
+  background: rgba(162,89,217,0.93);
+  z-index: 3;
+}
+
+.smiler-happy-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+
+.smiler-badge {
+  font-size: 8px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Hover "View" hint ── */
+.smiler-hover-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(162,89,217,0.45);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+
+.smiler-card:hover .smiler-hover-hint {
+  opacity: 1;
+}
+
+.smiler-hover-hint span {
+  background: #fff;
+  color: #a259d9;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 50px;
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════
+   LIGHTBOX
+══════════════════════════════ */
+.smiler-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lb-fade-in 0.25s ease;
+}
+
+@keyframes lb-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Lightbox card — same purple design, bigger */
+.smiler-lightbox-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #a259d9;
+  border: 8px solid #a259d9;
+  width: min(380px, 90vw);
+  aspect-ratio: 3 / 4;
+  animation: lb-scale-in 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes lb-scale-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.smiler-lightbox-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Larger quote on lightbox */
+.smiler-quote-wrap--lg {
+  width: 52px;
+  height: 52px;
+  bottom: 68px;
+  left: 14px;
+}
+
+.smiler-quote-wrap--lg .smiler-quote {
+  font-size: 3rem;
+}
+
+/* Larger bottom bar on lightbox */
+.smiler-overlay--lg {
+  padding: 12px 16px 14px;
+}
+
+.smiler-overlay--lg .smiler-happy-label {
+  font-size: 13px;
+}
+
+.smiler-overlay--lg .smiler-badge {
+  font-size: 10px;
+}
+
+/* Close button */
+.smiler-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1001;
+}
+
+.smiler-lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Prev / Next arrows */
+.smiler-lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1001;
+}
+
+.smiler-lightbox-arrow:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.smiler-lightbox-arrow--prev { left: 20px; }
+.smiler-lightbox-arrow--next { right: 20px; }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+  .smilers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .smilers-section { padding: 48px 16px; }
+  .smilers-grid    { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .smiler-lightbox-arrow--prev { left: 8px; }
+  .smiler-lightbox-arrow--next { right: 8px; }
+}

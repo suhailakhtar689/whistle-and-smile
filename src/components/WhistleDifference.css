@@ -1,216 +1,119 @@
-/* WhistleDifference.css – Modern & Professional Design */
-
 .diff-section {
-  padding: 100px 24px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle background pattern */
-.diff-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(rgba(128, 90, 240, 0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+  padding: 80px 24px;
+  background: #eaf3fb;
 }
 
 .diff-inner {
-  max-width: var(--max-w);
+  max-width: 1000px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
+  gap: 32px;
+  align-items: stretch;
 }
 
-/* Left side */
-.diff-left {
-  width: 100%;
+/* Left white card */
+.diff-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .diff-title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 48px;
+  color: #111827;
+  margin: 0 0 40px 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  position: relative;
-  display: inline-block;
-}
-
-.diff-title::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #805AF0, #B86BFF);
-  border-radius: 4px;
 }
 
 .diff-points {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .diff-point {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: flex-start;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 20px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.diff-point:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(8px);
-  border-color: rgba(128, 90, 240, 0.3);
 }
 
 .diff-icon {
-  font-size: 2rem;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #805AF0, #B86BFF);
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(128, 90, 240, 0.3);
 }
 
 .diff-point-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 8px;
-  letter-spacing: -0.2px;
+  color: #111827;
+  margin: 0 0 6px 0;
 }
 
 .diff-point-desc {
-  font-size: 0.9rem;
-  color: #b0b0b0;
+  font-size: 0.88rem;
+  color: #6b7280;
   line-height: 1.6;
   margin: 0;
 }
 
-/* Right side – image with elegant frame */
+/* Right image */
 .diff-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 380px;
 }
 
 .diff-img {
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 480 / 400;
+  height: 100%;
   object-fit: cover;
-  border-radius: 28px;
-  box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(128, 90, 240, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.diff-img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 35px 45px -20px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(128, 90, 240, 0.5);
-}
-
-/* Decorative gradient border on image container */
-.diff-right::before {
-  content: '';
-  position: absolute;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
-  background: linear-gradient(135deg, #805AF0, #B86BFF, #FF6B9D);
-  border-radius: 38px;
-  z-index: -1;
-  opacity: 0.3;
-  transition: opacity 0.3s;
-}
-
-.diff-right {
-  position: relative;
+  display: block;
 }
 
 /* Responsive */
-@media (max-width: 950px) {
+@media (max-width: 768px) {
   .diff-section {
-    padding: 70px 24px;
+    padding: 48px 16px;
   }
   .diff-inner {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 24px;
   }
   .diff-right {
-    order: 1;
-    margin-top: 20px;
+    min-height: 260px;
+    order: -1;
   }
-  .diff-left {
-    order: 0;
-    text-align: center;
+  .diff-card {
+    padding: 32px 24px;
   }
-  .diff-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .diff-point {
-    text-align: left;
-  }
-  .diff-img {
-    max-width: 85%;
-    margin: 0 auto;
+  .diff-title {
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 640px) {
-  .diff-section {
-    padding: 50px 16px;
+@media (max-width: 480px) {
+  .diff-card {
+    padding: 24px 20px;
   }
   .diff-title {
-    margin-bottom: 36px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 28px;
   }
   .diff-points {
     gap: 20px;
   }
-  .diff-point {
-    padding: 16px;
-    gap: 14px;
-  }
-  .diff-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 1.5rem;
-  }
-  .diff-point-title {
-    font-size: 1rem;
-  }
   .diff-point-desc {
-    font-size: 0.85rem;
-  }
-  .diff-img {
-    max-width: 100%;
-    border-radius: 20px;
-  }
-  .diff-right::before {
-    display: none;
+    font-size: 0.83rem;
   }
 }

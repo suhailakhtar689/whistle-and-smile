@@ -1,148 +1,192 @@
-/* Base styles (same as before, but with overflow control) */
 .comp-section {
   padding: 80px 24px;
-  background: var(--off-white);
+  background: #ffffff;
 }
+
 .comp-inner {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
 }
+
 .comp-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
   text-align: center;
-  color: var(--white);
-  background: #111;
-  padding: 60px 24px 40px;
-  border-radius: 20px 20px 0 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.02em;
 }
+
 .comp-table-wrap {
-  background: var(--white);
-  border-radius: 0 0 20px 20px;
-  overflow-x: auto;  /* Enables horizontal scroll on small screens */
-  overflow-y: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
+
 .comp-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; /* Ensures table doesn't get too cramped, forces scroll if needed */
+  min-width: 520px;
 }
+
+/* Header */
+.comp-table thead tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
 .comp-table th {
-  padding: 18px 24px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 20px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
   text-align: center;
-  background: var(--white);
-  border-bottom: 2px solid var(--border);
+  background: #fff;
 }
+
 .col-feature {
   text-align: left !important;
+  width: 50%;
 }
-.whistle-badge {
-  display: inline-block;
-  background: var(--purple);
-  color: var(--white);
-  padding: 4px 14px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+
+.col-whistle {
+  background: #eef2ff !important;
+  width: 25%;
 }
-.comp-table td {
-  padding: 16px 24px;
-  font-size: 0.87rem;
-  border-bottom: 1px solid var(--border);
-  text-align: center;
+
+.col-others {
+  width: 25%;
 }
-.feature-cell {
-  text-align: left;
-  font-weight: 500;
-  color: var(--black);
+
+/* Whistle logo in header */
+.whistle-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
 }
-.tick {
-  font-size: 1.1rem;
-  font-weight: 700;
+
+.whistle-text {
+  font-size: 30px;
+  font-weight: 800;
+  color: #7c3aed;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  font-family: Georgia, serif;
 }
-.tick.green {
-  color: var(--green);
+
+.whistle-sub {
+  font-size: 9px;
+  font-weight: 600;
+  color: #a78bfa;
+  letter-spacing: 0.15em;
+  margin-top: 1px;
 }
-.tick.red {
-  color: var(--red);
+
+/* Body rows */
+.comp-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.12s;
 }
-.tag-text {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--purple);
-}
-.tag-text.grey {
-  color: var(--grey);
-}
-.comp-table tbody tr:last-child td {
+
+.comp-table tbody tr:last-child {
   border-bottom: none;
 }
-.comp-table tbody tr:hover {
-  background: var(--off-white);
+
+.comp-table tbody tr:hover .feature-cell {
+  background: #f9fafb;
 }
 
-/* Mobile responsive adjustments */
+.comp-table td {
+  padding: 20px 24px;
+  font-size: 14px;
+  text-align: center;
+  color: #111827;
+  vertical-align: middle;
+}
+
+/* Feature cell */
+.feature-cell {
+  text-align: left !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.feature-name {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 400;
+}
+
+.chevron-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Whistle column highlight */
+.whistle-cell {
+  background: #eef2ff;
+}
+
+.others-cell {
+  background: #fff;
+}
+
+/* Icons */
+.circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text tags */
+.tag-purple {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4f46e5;
+  line-height: 1.4;
+  display: inline-block;
+}
+
+.tag-grey {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.4;
+  display: inline-block;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .comp-section {
-    padding: 60px 16px;
+    padding: 48px 16px;
   }
   .comp-title {
-    padding: 40px 20px 30px;
-    font-size: clamp(1.4rem, 5vw, 1.8rem);
-  }
-  .comp-table-wrap {
-    border-radius: 0 0 16px 16px;
-  }
-  .comp-table {
-    min-width: 500px; /* Slightly smaller min-width for better fit, still scrollable */
+    font-size: 1.5rem;
   }
   .comp-table th,
   .comp-table td {
-    padding: 12px 16px;
-    font-size: 0.8rem;
+    padding: 14px 16px;
+    font-size: 13px;
   }
-  .whistle-badge {
-    padding: 3px 10px;
-    font-size: 0.7rem;
-  }
-  .tick {
-    font-size: 1rem;
-  }
-  .tag-text {
-    font-size: 0.75rem;
-  }
-  .feature-cell {
-    font-size: 0.8rem;
+  .whistle-text {
+    font-size: 18px;
   }
 }
 
-/* Extra small devices (below 480px) */
 @media (max-width: 480px) {
-  .comp-section {
-    padding: 40px 12px;
-  }
-  .comp-table {
-    min-width: 420px;
-  }
   .comp-table th,
   .comp-table td {
-    padding: 10px 12px;
-    font-size: 0.75rem;
-  }
-  .whistle-badge {
-    padding: 2px 8px;
-    font-size: 0.65rem;
-  }
-  .tick {
-    font-size: 0.9rem;
-  }
-  .tag-text {
-    font-size: 0.7rem;
+    padding: 12px 12px;
+    font-size: 12px;
   }
 }

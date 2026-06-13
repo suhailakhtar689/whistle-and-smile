@@ -8,21 +8,20 @@ export default function Results() {
 
   useEffect(() => {
     const ctrl = new AbortController();
-    // Fetch more fields: price, rating, brand, description, thumbnail
-    fetch('https://dummyjson.com/products?limit=8&select=id,title,thumbnail,description,price,rating,brand', { signal: ctrl.signal })
-      .then(r => { 
-        if (!r.ok) throw new Error('Failed to fetch products'); 
-        return r.json(); 
+    fetch('https://fakestoreapi.com/products?limit=8', { signal: ctrl.signal })
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to fetch products');
+        return r.json();
       })
-      .then(d => { 
-        setItems(d.products); 
-        setLoading(false); 
+      .then((data) => {
+        setItems(data);
+        setLoading(false);
       })
-      .catch(e => { 
-        if (e.name !== 'AbortError') { 
-          setError('Could not load product data.'); 
-          setLoading(false); 
-        } 
+      .catch((e) => {
+        if (e.name !== 'AbortError') {
+          setError('Could not load product data. Please try again.');
+          setLoading(false);
+        }
       });
     return () => ctrl.abort();
   }, []);
@@ -63,7 +62,7 @@ export default function Results() {
               <div key={item.id} className="result-card">
                 <div className="rc-img-wrap">
                   <img
-                    src={item.thumbnail}
+                    src={item.image}
                     alt={item.title}
                     className="rc-img"
                     loading="lazy"
@@ -72,7 +71,7 @@ export default function Results() {
                 <div className="rc-body">
                   <div className="rc-header">
                     <span className="rc-type">{item.title}</span>
-                    {item.brand && <span className="rc-brand">by {item.brand}</span>}
+                    {item.category && <span className="rc-brand">{item.category}</span>}
                   </div>
                   <div className="rc-meta">
                     {/* <span className="rc-price"> ${item.price}</span> */}

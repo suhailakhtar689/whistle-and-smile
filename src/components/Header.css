@@ -6,6 +6,16 @@
   top: 0;
   z-index: 100;
 }
+
+.whistle-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #7c3aed;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  font-family: Georgia, serif;
+}
+
 .header-inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -15,25 +25,31 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
 .logo-area {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.5rem;
 }
+
 .logo-whistle { color: #111; }
 .logo-and { color: var(--purple); margin: 0 4px; }
 .logo-smile { color: #111; }
+
 .header-nav {
   display: flex;
   gap: 28px;
 }
+
 .header-nav a {
   text-decoration: none;
   color: var(--dark-grey);
   font-size: 0.9rem;
   font-weight: 500;
 }
+
 .header-nav a:hover { color: var(--purple); }
+
 .header-cta {
   background: var(--purple);
   color: white;
@@ -42,8 +58,28 @@
   border-radius: 40px;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
+
+/* 🔥 ICON visible on ALL screen sizes (desktop + mobile) */
+.header-cta .cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 TEXT hidden on ALL screen sizes (desktop + mobile) */
+.header-cta .cta-text {
+  display: none;
+}
+
+/* Optional: adjust button padding for smaller screens if needed */
 @media (max-width: 768px) {
   .header-nav { display: none; }
   .header-inner { justify-content: space-between; }
+  .header-cta {
+    padding: 8px 12px;
+  }
 }
